@@ -22,7 +22,7 @@ import (
 	"log"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/crypto/randentropy"
+	"github.com/soilcurrency/go-ethereum/crypto/randentropy"
 )
 
 const TESTS = 10000 // how many tests

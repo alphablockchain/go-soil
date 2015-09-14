@@ -26,11 +26,11 @@ import (
 	"time"
 
 	"github.com/codegangsta/cli"
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/ethereum/go-ethereum/rpc/codec"
-	"github.com/ethereum/go-ethereum/rpc/comms"
+	"github.com/soilcurrency/go-ethereum/cmd/utils"
+	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-ethereum/rpc"
+	"github.com/soilcurrency/go-ethereum/rpc/codec"
+	"github.com/soilcurrency/go-ethereum/rpc/comms"
 	"github.com/gizak/termui"
 )
 
@@ -53,9 +53,9 @@ var (
 	monitorCommand = cli.Command{
 		Action: monitor,
 		Name:   "monitor",
-		Usage:  `Geth Monitor: node metrics monitoring and visualization`,
+		Usage:  `Gsoil Monitor: node metrics monitoring and visualization`,
 		Description: `
-The Geth monitor is a tool to collect and visualize various internal metrics
+The Gsoil monitor is a tool to collect and visualize various internal metrics
 gathered by the node, supporting different chart types as well as the capacity
 to display multiple metrics simultaneously.
 `,

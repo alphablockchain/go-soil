@@ -21,11 +21,11 @@ import (
 	"math/rand"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/logger"
-	"github.com/ethereum/go-ethereum/logger/glog"
+	"github.com/soilcurrency/go-ethereum/core"
+	"github.com/soilcurrency/go-ethereum/core/types"
+	"github.com/soilcurrency/go-ethereum/event"
+	"github.com/soilcurrency/go-ethereum/logger"
+	"github.com/soilcurrency/go-ethereum/logger/glog"
 )
 
 const gpoProcessPastBlocks = 100

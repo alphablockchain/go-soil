@@ -17,7 +17,7 @@
 package eth
 
 import (
-	"github.com/ethereum/go-ethereum/metrics"
+	"github.com/soilcurrency/go-ethereum/metrics"
 )
 
 var (

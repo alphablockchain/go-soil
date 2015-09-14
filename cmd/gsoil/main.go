@@ -29,25 +29,25 @@ import (
 	"time"
 
 	"github.com/codegangsta/cli"
-	"github.com/ethereum/ethash"
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/eth"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/logger"
-	"github.com/ethereum/go-ethereum/logger/glog"
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/ethereum/go-ethereum/rpc/codec"
-	"github.com/ethereum/go-ethereum/rpc/comms"
+	"github.com/soilcurrency/ethash"
+	"github.com/soilcurrency/go-ethereum/accounts"
+	"github.com/soilcurrency/go-ethereum/cmd/utils"
+	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-ethereum/core"
+	"github.com/soilcurrency/go-ethereum/core/types"
+	"github.com/soilcurrency/go-ethereum/eth"
+	"github.com/soilcurrency/go-ethereum/ethdb"
+	"github.com/soilcurrency/go-ethereum/logger"
+	"github.com/soilcurrency/go-ethereum/logger/glog"
+	"github.com/soilcurrency/go-ethereum/metrics"
+	"github.com/soilcurrency/go-ethereum/params"
+	"github.com/soilcurrency/go-ethereum/rlp"
+	"github.com/soilcurrency/go-ethereum/rpc/codec"
+	"github.com/soilcurrency/go-ethereum/rpc/comms"
 )
 
 const (
-	ClientIdentifier = "Geth"
+	ClientIdentifier = "Gsoil"
 	Version          = "1.1.3"
 	VersionMajor     = 1
 	VersionMinor     = 1
@@ -124,7 +124,7 @@ The output of this command is supposed to be machine-readable.
 
     get wallet import /path/to/my/presale.wallet
 
-will prompt for your password and imports your ether presale account.
+will prompt for your password and imports your soil presale account.
 It can be used non-interactively with the --password option taking a
 passwordfile as argument containing the wallet password in plaintext.
 
@@ -247,18 +247,18 @@ nodes.
 		{
 			Action: console,
 			Name:   "console",
-			Usage:  `Geth Console: interactive JavaScript environment`,
+			Usage:  `Gsoil Console: interactive JavaScript environment`,
 			Description: `
-The Geth console is an interactive shell for the JavaScript runtime environment
+The Gsoil console is an interactive shell for the JavaScript runtime environment
 which exposes a node admin interface as well as the Ðapp JavaScript API.
 See https://github.com/ethereum/go-ethereum/wiki/Javascipt-Console
 `},
 		{
 			Action: attach,
 			Name:   "attach",
-			Usage:  `Geth Console: interactive JavaScript environment (connect to node)`,
+			Usage:  `Gsoil Console: interactive JavaScript environment (connect to node)`,
 			Description: `
-The Geth console is an interactive shell for the JavaScript runtime environment
+The Gsoil console is an interactive shell for the JavaScript runtime environment
 which exposes a node admin interface as well as the Ðapp JavaScript API.
 See https://github.com/ethereum/go-ethereum/wiki/Javascipt-Console.
 This command allows to open a console on a running geth node.
@@ -267,7 +267,7 @@ This command allows to open a console on a running geth node.
 		{
 			Action: execJSFiles,
 			Name:   "js",
-			Usage:  `executes the given JavaScript files in the Geth JavaScript VM`,
+			Usage:  `executes the given JavaScript files in the Gsoil JavaScript VM`,
 			Description: `
 The JavaScript VM exposes a node admin interface as well as the Ðapp
 JavaScript API. See https://github.com/ethereum/go-ethereum/wiki/Javascipt-Console

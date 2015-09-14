@@ -1809,27 +1809,27 @@ var ETH_UNITS = [
     'Gwei',
     'szabo',
     'finney',
-    'femtoether',
-    'picoether',
-    'nanoether',
-    'microether',
-    'milliether',
+    'femtosoil',
+    'picosoil',
+    'nanosoil',
+    'microsoil',
+    'millisoil',
     'nano',
     'micro',
     'milli',
-    'ether',
+    'soil',
     'grand',
-    'Mether',
-    'Gether',
-    'Tether',
-    'Pether',
-    'Eether',
-    'Zether',
-    'Yether',
-    'Nether',
-    'Dether',
-    'Vether',
-    'Uether'
+    'Msoil',
+    'Gsoil',
+    'Tsoil',
+    'Psoil',
+    'Esoil',
+    'Zsoil',
+    'Ysoil',
+    'Nsoil',
+    'Dsoil',
+    'Vsoil',
+    'Usoil'
 ];
 
 module.exports = {
@@ -1928,27 +1928,27 @@ var unitMap = {
     'wei':          '1',
     'kwei':         '1000',
     'ada':          '1000',
-    'femtoether':   '1000',
+    'femtosoil':   '1000',
     'mwei':         '1000000',
     'babbage':      '1000000',
-    'picoether':    '1000000',
+    'picosoil':    '1000000',
     'gwei':         '1000000000',
     'shannon':      '1000000000',
-    'nanoether':    '1000000000',
+    'nanosoil':    '1000000000',
     'nano':         '1000000000',
     'szabo':        '1000000000000',
-    'microether':   '1000000000000',
+    'microsoil':   '1000000000000',
     'micro':        '1000000000000',
     'finney':       '1000000000000000',
-    'milliether':    '1000000000000000',
+    'millisoil':    '1000000000000000',
     'milli':         '1000000000000000',
-    'ether':        '1000000000000000000',
-    'kether':       '1000000000000000000000',
+    'soil':        '1000000000000000000',
+    'ksoil':       '1000000000000000000000',
     'grand':        '1000000000000000000000',
     'einstein':     '1000000000000000000000',
-    'mether':       '1000000000000000000000000',
-    'gether':       '1000000000000000000000000000',
-    'tether':       '1000000000000000000000000000000'
+    'msoil':       '1000000000000000000000000',
+    'gsoil':       '1000000000000000000000000000',
+    'tsoil':       '1000000000000000000000000000000'
 };
 
 /**
@@ -2132,12 +2132,12 @@ var toHex = function (val) {
  * Returns value of unit in Wei
  *
  * @method getValueOfUnit
- * @param {String} unit the unit to convert to, default ether
+ * @param {String} unit the unit to convert to, default soil
  * @returns {BigNumber} value of the unit (in Wei)
  * @throws error if the unit is not correct:w
  */
 var getValueOfUnit = function (unit) {
-    unit = unit ? unit.toLowerCase() : 'ether';
+    unit = unit ? unit.toLowerCase() : 'soil';
     var unitValue = unitMap[unit];
     if (unitValue === undefined) {
         throw new Error('This unit doesn\'t exists, please use the one of the following units' + JSON.stringify(unitMap, null, 2));
@@ -2146,24 +2146,24 @@ var getValueOfUnit = function (unit) {
 };
 
 /**
- * Takes a number of wei and converts it to any other ether unit.
+ * Takes a number of wei and converts it to any other soil unit.
  *
  * Possible units are:
  *   SI Short   SI Full        Effigy       Other
- * - kwei       femtoether     ada
- * - mwei       picoether      babbage
- * - gwei       nanoether      shannon      nano
- * - --         microether     szabo        micro
- * - --         milliether     finney       milli
- * - ether      --             --
- * - kether                    einstein     grand 
- * - mether
- * - gether
- * - tether
+ * - kwei       femtosoil     ada
+ * - mwei       picosoil      babbage
+ * - gwei       nanosoil      shannon      nano
+ * - --         microsoil     szabo        micro
+ * - --         millisoil     finney       milli
+ * - soil      --             --
+ * - ksoil                    einstein     grand 
+ * - msoil
+ * - gsoil
+ * - tsoil
  *
  * @method fromWei
  * @param {Number|String} number can be a number, number string or a HEX of a decimal
- * @param {String} unit the unit to convert to, default ether
+ * @param {String} unit the unit to convert to, default soil
  * @return {String|Object} When given a BigNumber object it returns one as well, otherwise a number
 */
 var fromWei = function(number, unit) {
@@ -2177,20 +2177,20 @@ var fromWei = function(number, unit) {
  *
  * Possible units are:
  *   SI Short   SI Full        Effigy       Other
- * - kwei       femtoether     ada
- * - mwei       picoether      babbage       
- * - gwei       nanoether      shannon      nano
- * - --         microether     szabo        micro
- * - --         milliether     finney       milli
- * - ether      --             --
- * - kether                    einstein     grand 
- * - mether
- * - gether
- * - tether
+ * - kwei       femtosoil     ada
+ * - mwei       picosoil      babbage       
+ * - gwei       nanosoil      shannon      nano
+ * - --         microsoil     szabo        micro
+ * - --         millisoil     finney       milli
+ * - soil      --             --
+ * - ksoil                    einstein     grand 
+ * - msoil
+ * - gsoil
+ * - tsoil
  *
  * @method toWei
  * @param {Number|String|BigNumber} number can be a number, number string or a HEX of a decimal
- * @param {String} unit the unit to convert from, default ether
+ * @param {String} unit the unit to convert from, default soil
  * @return {String|Object} When given a BigNumber object it returns one as well, otherwise a number
 */
 var toWei = function(number, unit) {

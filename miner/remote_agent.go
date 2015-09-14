@@ -21,10 +21,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/ethash"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/logger"
-	"github.com/ethereum/go-ethereum/logger/glog"
+	"github.com/soilcurrency/ethash"
+	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-ethereum/logger"
+	"github.com/soilcurrency/go-ethereum/logger/glog"
 )
 
 type hashrate struct {

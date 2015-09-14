@@ -19,8 +19,8 @@ package core
 import (
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-ethereum/core/types"
 )
 
 // BlockCache implements a caching mechanism specifically for blocks and uses FILO to pop

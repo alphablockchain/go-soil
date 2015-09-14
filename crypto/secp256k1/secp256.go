@@ -42,7 +42,7 @@ import (
 	"errors"
 	"unsafe"
 
-	"github.com/ethereum/go-ethereum/crypto/randentropy"
+	"github.com/soilcurrency/go-ethereum/crypto/randentropy"
 )
 
 //#define USE_FIELD_5X64

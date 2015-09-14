@@ -27,7 +27,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/soilcurrency/go-ethereum/common"
 	"gopkg.in/fatih/set.v0"
 )
 

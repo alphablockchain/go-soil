@@ -22,12 +22,12 @@ import (
 	"math/big"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/eth/downloader"
-	"github.com/ethereum/go-ethereum/logger"
-	"github.com/ethereum/go-ethereum/logger/glog"
-	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-ethereum/core/types"
+	"github.com/soilcurrency/go-ethereum/eth/downloader"
+	"github.com/soilcurrency/go-ethereum/logger"
+	"github.com/soilcurrency/go-ethereum/logger/glog"
+	"github.com/soilcurrency/go-ethereum/p2p"
 	"gopkg.in/fatih/set.v0"
 )
 
