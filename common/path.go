@@ -102,9 +102,9 @@ func DefaultAssetPath() string {
 func DefaultDataDir() string {
 	usr, _ := user.Current()
 	if runtime.GOOS == "darwin" {
-		return filepath.Join(usr.HomeDir, "Library", "Ethereum")
+		return filepath.Join(usr.HomeDir, "Library", "Soil")
 	} else if runtime.GOOS == "windows" {
-		return filepath.Join(usr.HomeDir, "AppData", "Roaming", "Ethereum")
+		return filepath.Join(usr.HomeDir, "AppData", "Roaming", "Soil")
 	} else {
 		return filepath.Join(usr.HomeDir, ".soil")
 	}
