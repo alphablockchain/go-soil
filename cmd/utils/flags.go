@@ -250,7 +250,7 @@ var (
 	RPCPortFlag = cli.IntFlag{
 		Name:  "rpcport",
 		Usage: "Port on which the JSON-RPC server should listen",
-		Value: 8545,
+		Value: 39339,
 	}
 	RPCCORSDomainFlag = cli.StringFlag{
 		Name:  "rpccorsdomain",
