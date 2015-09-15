@@ -106,7 +106,7 @@ func DefaultDataDir() string {
 	} else if runtime.GOOS == "windows" {
 		return filepath.Join(usr.HomeDir, "AppData", "Roaming", "Ethereum")
 	} else {
-		return filepath.Join(usr.HomeDir, ".ethereum")
+		return filepath.Join(usr.HomeDir, ".soil")
 	}
 }
 
