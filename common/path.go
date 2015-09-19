@@ -112,7 +112,7 @@ func DefaultDataDir() string {
 
 func DefaultIpcPath() string {
 	if runtime.GOOS == "windows" {
-		return `\\.\pipe\geth.ipc`
+		return `\\.\pipe\gsoil.ipc`
 	}
-	return filepath.Join(DefaultDataDir(), "geth.ipc")
+	return filepath.Join(DefaultDataDir(), "gsoil.ipc")
 }
