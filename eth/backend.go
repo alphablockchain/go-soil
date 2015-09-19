@@ -62,7 +62,7 @@ var (
 	defaultBootNodes = []*discover.Node{
 		// ETH/DEV Go Bootnodes
 		discover.MustParseNode("enode://24e1e3b7bba2b0de7707dcc957faf541b87e99a665ff6cf93a1d6b60c2f65603dc69b14e97eb1e3219fa52bd26a27bb26957c0126da154a4895fc4ef873bac54@45.32.239.236:39338"), // TEST-NET0
-		discover.MustParseNode("enode://enode://0c0ce5d1b95de13732faa98d0ea5d6acafabdf2ec56104a52ffb7f34ee2fa08bb09524cd6e9c28ba5a57a84ec0352fd52a3065ea6af51967afba78537412b3c4@45.63.84.6:39338"), // TEST-NET1
+		discover.MustParseNode("enode://0c0ce5d1b95de13732faa98d0ea5d6acafabdf2ec56104a52ffb7f34ee2fa08bb09524cd6e9c28ba5a57a84ec0352fd52a3065ea6af51967afba78537412b3c4@45.63.84.6:39338"), // TEST-NET1
 		//discover.MustParseNode("enode://de471bccee3d042261d52e9bff31458daecc406142b401d4cd848f677479f73104b9fdeb090af9583d3391b7f10cb2ba9e26865dd5fca4fcdc0fb1e3b723c786@54.94.239.50:30303"),  // BR
 		//discover.MustParseNode("enode://1118980bf48b0a3640bdba04e0fe78b1add18e1cd99bf22d53daac1fd9972ad650df52176e7c7d89d1114cfef2bc23a2959aa54998a46afcf7d91809f0855082@52.74.57.123:30303"),  // SG
 		// ETH/DEV cpp-ethereum (poc-9.ethdev.com)
