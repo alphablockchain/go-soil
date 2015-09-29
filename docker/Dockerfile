@@ -11,7 +11,7 @@ RUN apt-get dist-upgrade -q -y
 # Let our containers upgrade themselves
 RUN apt-get install -q -y unattended-upgrades
 
-# Install Expanse
+# Install
 RUN apt-get install -q -y curl git mercurial binutils bison gcc make libgmp3-dev build-essential
 
 # Install Go
