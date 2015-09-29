@@ -15,14 +15,19 @@ RUN apt-get install -q -y unattended-upgrades
 RUN apt-get install -q -y curl git mercurial binutils bison gcc make libgmp3-dev build-essential
 
 # Install Go
-RUN \
-  mkdir -p /goroot && \
-  curl https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz | tar xvzf - -C /goroot --strip-components=1
+#RUN \
+#  mkdir -p /goroot && \
+#  curl https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz | tar xvzf - -C /goroot --strip-components=1
+RUN bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+RUN echo "[[ -s \"$HOME/.gvm/scripts/gvm\" ]] && source \"$HOME/.gvm/scripts/gvm\"" >> ~/.bashrc
+RUN source ~/.bashrc
+RUN gvm install go1.4
+RUN gvm use go1.4 --default
 
 # Set environment variables.
-ENV GOROOT /goroot
-ENV GOPATH /gopath
-ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
+#ENV GOROOT /goroot
+#ENV GOPATH /gopath
+#ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
 
 RUN git clone https://github.com/soilcurrency/go-ethereum.git
 RUN cd go-ethereum && git checkout master && make gsoil
