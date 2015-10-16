@@ -18,7 +18,7 @@ package core
 
 import (
 	"github.com/soilcurrency/go-ethereum/accounts"
-	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-ethereum/ethdb"
 	"github.com/soilcurrency/go-ethereum/event"
 )
 
@@ -28,7 +28,7 @@ type Backend interface {
 	BlockProcessor() *BlockProcessor
 	ChainManager() *ChainManager
 	TxPool() *TxPool
-	ChainDb() common.Database
-	DappDb() common.Database
+	ChainDb() ethdb.Database
+	DappDb() ethdb.Database
 	EventMux() *event.TypeMux
 }

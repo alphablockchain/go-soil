@@ -1,4 +1,5 @@
 // Copyright 2014 The go-ethereum Authors
+// Copyright 2015 The gsoil Authors
 // This file is part of the go-ethereum library.
 //
 // The go-ethereum library is free software: you can redistribute it and/or modify
@@ -20,4 +21,4 @@ import (
 	"math/big"
 )
 
-var BlockReward *big.Int = big.NewInt(5e+18)
+var BlockReward *big.Int = big.NewInt(8e+18)

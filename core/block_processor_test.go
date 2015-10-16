@@ -48,13 +48,21 @@ func TestNumber(t *testing.T) {
 	statedb := state.New(chain.Genesis().Root(), chain.chainDb)
 	header := makeHeader(chain.Genesis(), statedb)
 	header.Number = big.NewInt(3)
+<<<<<<< HEAD
 	err := ValidateHeader(pow, header, chain.Genesis(), false, false)
+=======
+	err := ValidateHeader(pow, header, chain.Genesis().Header(), false, false)
+>>>>>>> 2800c332807f322d351d16e55f3658f6efe62791
 	if err != BlockNumberErr {
 		t.Errorf("expected block number error, got %q", err)
 	}
 
 	header = makeHeader(chain.Genesis(), statedb)
+<<<<<<< HEAD
 	err = ValidateHeader(pow, header, chain.Genesis(), false, false)
+=======
+	err = ValidateHeader(pow, header, chain.Genesis().Header(), false, false)
+>>>>>>> 2800c332807f322d351d16e55f3658f6efe62791
 	if err == BlockNumberErr {
 		t.Errorf("didn't expect block number error")
 	}

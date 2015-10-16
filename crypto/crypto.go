@@ -33,12 +33,12 @@ import (
 	"encoding/json"
 	"errors"
 
-	"code.google.com/p/go-uuid/uuid"
 	"github.com/soilcurrency/go-ethereum/common"
 	"github.com/soilcurrency/go-ethereum/crypto/ecies"
 	"github.com/soilcurrency/go-ethereum/crypto/secp256k1"
 	"github.com/soilcurrency/go-ethereum/crypto/sha3"
 	"github.com/soilcurrency/go-ethereum/rlp"
+	"github.com/pborman/uuid"
 	"golang.org/x/crypto/pbkdf2"
 	"golang.org/x/crypto/ripemd160"
 )

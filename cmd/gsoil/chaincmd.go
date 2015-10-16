@@ -29,6 +29,7 @@ import (
 	"github.com/soilcurrency/go-ethereum/core"
 	"github.com/soilcurrency/go-ethereum/core/state"
 	"github.com/soilcurrency/go-ethereum/core/types"
+	"github.com/soilcurrency/go-ethereum/ethdb"
 	"github.com/soilcurrency/go-ethereum/logger/glog"
 )
 
@@ -191,7 +192,7 @@ func hashish(x string) bool {
 	return err != nil
 }
 
-func closeAll(dbs ...common.Database) {
+func closeAll(dbs ...ethdb.Database) {
 	for _, db := range dbs {
 		db.Close()
 	}
