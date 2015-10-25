@@ -121,7 +121,7 @@ func NewChainManager(chainDb ethdb.Database, pow pow.PoW, mux *event.TypeMux) (*
 		if err != nil {
 			return nil, err
 		}
-		glog.V(logger.Info).Infoln("Wrote default soil genesis block")
+		glog.V(logger.Info).Infoln("WARNING: Wrote default ethereum genesis block")
 	}
 	if err := bc.setLastState(); err != nil {
 		return nil, err

@@ -42,8 +42,6 @@ func TestBcUncleTests(t *testing.T) {
 	}
 }
 
-<<<<<<< HEAD
-=======
 func TestBcForkUncleTests(t *testing.T) {
 	err := RunBlockTest(filepath.Join(blockTestDir, "bcForkUncle.json"), BlockSkipTests)
 	if err != nil {
@@ -51,7 +49,6 @@ func TestBcForkUncleTests(t *testing.T) {
 	}
 }
 
->>>>>>> 2800c332807f322d351d16e55f3658f6efe62791
 func TestBcInvalidHeaderTests(t *testing.T) {
 	err := RunBlockTest(filepath.Join(blockTestDir, "bcInvalidHeaderTest.json"), BlockSkipTests)
 	if err != nil {

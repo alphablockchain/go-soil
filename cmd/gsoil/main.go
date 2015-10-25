@@ -1,5 +1,4 @@
 // Copyright 2014 The go-ethereum Authors
-// Copyright 2015 The gsoil Authors
 // This file is part of go-ethereum.
 //
 // go-ethereum is free software: you can redistribute it and/or modify
@@ -49,10 +48,10 @@ import (
 
 const (
 	ClientIdentifier = "Gsoil"
-	Version          = "1.2.2"
+	Version          = "1.2.3"
 	VersionMajor     = 1
 	VersionMinor     = 2
-	VersionPatch     = 2
+	VersionPatch     = 3
 )
 
 var (

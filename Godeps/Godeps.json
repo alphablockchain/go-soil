@@ -15,15 +15,9 @@
 			"Rev": "3e6e67c4dcea3ac2f25fd4731abc0e1deaf36216"
 		},
 		{
-<<<<<<< HEAD
 			"ImportPath": "github.com/soilcurrency/ethash",
-			"Comment": "v23.1-227-g8f6ccaa",
-			"Rev": "8f6ccaaef9b418553807a73a95cb5f49cd3ea39f"
-=======
-			"ImportPath": "github.com/ethereum/ethash",
 			"Comment": "v23.1-234-g062e40a",
 			"Rev": "062e40a1a1671f5a5102862b56e4c56f68a732f5"
->>>>>>> 2800c332807f322d351d16e55f3658f6efe62791
 		},
 		{
 			"ImportPath": "github.com/fatih/color",
