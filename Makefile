@@ -10,53 +10,53 @@ gsoil:
 	@echo "Done building."
 	@echo "Run \"$(GOBIN)/gsoil\" to launch gsoil."
 
-geth-cross: geth-linux geth-darwin geth-windows geth-android
+gsoil-cross: gsoil-linux gsoil-darwin gsoil-windows gsoil-android
 	@echo "Full cross compilation done:"
-	@ls -l $(GOBIN)/geth-*
+	@ls -l $(GOBIN)/gsoil-*
 
-geth-linux: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=linux/* -v ./cmd/geth
+gsoil-linux: xgo
+	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=linux/* -v ./cmd/gsoil
 	@echo "Linux cross compilation done:"
-	@ls -l $(GOBIN)/geth-linux-*
+	@ls -l $(GOBIN)/gsoil-linux-*
 
-geth-darwin: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=darwin/* -v ./cmd/geth
+gsoil-darwin: xgo
+	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=darwin/* -v ./cmd/gsoil
 	@echo "Darwin cross compilation done:"
-	@ls -l $(GOBIN)/geth-darwin-*
+	@ls -l $(GOBIN)/gsoil-darwin-*
 
-geth-windows: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=windows/* -v ./cmd/geth
+gsoil-windows: xgo
+	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=windows/* -v ./cmd/gsoil
 	@echo "Windows cross compilation done:"
-	@ls -l $(GOBIN)/geth-windows-*
+	@ls -l $(GOBIN)/gsoil-windows-*
 
-geth-android: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=android-16/*,android-21/* -v ./cmd/geth
+gsoil-android: xgo
+	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=android-16/*,android-21/* -v ./cmd/gsoil
 	@echo "Android cross compilation done:"
-	@ls -l $(GOBIN)/geth-android-*
+	@ls -l $(GOBIN)/gsoil-android-*
 
-geth-cross: geth-linux geth-darwin geth-windows geth-android
+gsoil-cross: gsoil-linux gsoil-darwin gsoil-windows gsoil-android
 	@echo "Full cross compilation done:"
-	@ls -l $(GOBIN)/geth-*
+	@ls -l $(GOBIN)/gsoil-*
 
-geth-linux: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=linux/* -v ./cmd/geth
+gsoil-linux: xgo
+	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=linux/* -v ./cmd/gsoil
 	@echo "Linux cross compilation done:"
-	@ls -l $(GOBIN)/geth-linux-*
+	@ls -l $(GOBIN)/gsoil-linux-*
 
-geth-darwin: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=darwin/* -v ./cmd/geth
+gsoil-darwin: xgo
+	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=darwin/* -v ./cmd/gsoil
 	@echo "Darwin cross compilation done:"
-	@ls -l $(GOBIN)/geth-darwin-*
+	@ls -l $(GOBIN)/gsoil-darwin-*
 
-geth-windows: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=windows/* -v ./cmd/geth
+gsoil-windows: xgo
+	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=windows/* -v ./cmd/gsoil
 	@echo "Windows cross compilation done:"
-	@ls -l $(GOBIN)/geth-windows-*
+	@ls -l $(GOBIN)/gsoil-windows-*
 
-geth-android: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=android-16/*,android-21/* -v ./cmd/geth
+gsoil-android: xgo
+	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=android-16/*,android-21/* -v ./cmd/gsoil
 	@echo "Android cross compilation done:"
-	@ls -l $(GOBIN)/geth-android-*
+	@ls -l $(GOBIN)/gsoil-android-*
 
 evm:
 	build/env.sh $(GOROOT)/bin/go install -v $(shell build/ldflags.sh) ./cmd/evm
