@@ -24,7 +24,9 @@ import (
 	"fmt"
 
 	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-ethereum/common/natspec"
 	"github.com/soilcurrency/go-ethereum/eth"
+	"github.com/soilcurrency/go-ethereum/rlp"
 	"github.com/soilcurrency/go-ethereum/rpc/codec"
 	"github.com/soilcurrency/go-ethereum/rpc/shared"
 	"github.com/soilcurrency/go-ethereum/xeth"
@@ -67,9 +69,12 @@ var (
 		"eth_getUncleCountByBlockNumber":          (*ethApi).GetUncleCountByBlockNumber,
 		"eth_getData":                             (*ethApi).GetData,
 		"eth_getCode":                             (*ethApi).GetData,
+		"eth_getNatSpec":                          (*ethApi).GetNatSpec,
 		"eth_sign":                                (*ethApi).Sign,
-		"eth_sendRawTransaction":                  (*ethApi).SendRawTransaction,
+		"eth_sendRawTransaction":                  (*ethApi).SubmitTransaction,
+		"eth_submitTransaction":                   (*ethApi).SubmitTransaction,
 		"eth_sendTransaction":                     (*ethApi).SendTransaction,
+		"eth_signTransaction":                     (*ethApi).SignTransaction,
 		"eth_transact":                            (*ethApi).SendTransaction,
 		"eth_estimateGas":                         (*ethApi).EstimateGas,
 		"eth_call":                                (*ethApi).Call,
@@ -168,9 +173,7 @@ func (self *ethApi) IsMining(req *shared.Request) (interface{}, error) {
 }
 
 func (self *ethApi) IsSyncing(req *shared.Request) (interface{}, error) {
-	current := self.ethereum.ChainManager().CurrentBlock().NumberU64()
-	origin, height := self.ethereum.Downloader().Boundaries()
-
+	origin, current, height := self.ethereum.Downloader().Progress()
 	if current < height {
 		return map[string]interface{}{
 			"startingBlock": newHexNum(big.NewInt(int64(origin)).Bytes()),
@@ -285,7 +288,7 @@ func (self *ethApi) Sign(req *shared.Request) (interface{}, error) {
 	return v, nil
 }
 
-func (self *ethApi) SendRawTransaction(req *shared.Request) (interface{}, error) {
+func (self *ethApi) SubmitTransaction(req *shared.Request) (interface{}, error) {
 	args := new(NewDataArgs)
 	if err := self.codec.Decode(req.Params, &args); err != nil {
 		return nil, shared.NewDecodeParamError(err.Error())
@@ -296,6 +299,45 @@ func (self *ethApi) SendRawTransaction(req *shared.Request) (interface{}, error)
 		return nil, err
 	}
 	return v, nil
+}
+
+// JsonTransaction is returned as response by the JSON RPC. It contains the
+// signed RLP encoded transaction as Raw and the signed transaction object as Tx.
+type JsonTransaction struct {
+	Raw string `json:"raw"`
+	Tx  *tx    `json:"tx"`
+}
+
+func (self *ethApi) SignTransaction(req *shared.Request) (interface{}, error) {
+	args := new(NewTxArgs)
+	if err := self.codec.Decode(req.Params, &args); err != nil {
+		return nil, shared.NewDecodeParamError(err.Error())
+	}
+
+	// nonce may be nil ("guess" mode)
+	var nonce string
+	if args.Nonce != nil {
+		nonce = args.Nonce.String()
+	}
+
+	var gas, price string
+	if args.Gas != nil {
+		gas = args.Gas.String()
+	}
+	if args.GasPrice != nil {
+		price = args.GasPrice.String()
+	}
+	tx, err := self.xeth.SignTransaction(args.From, args.To, nonce, args.Value.String(), gas, price, args.Data)
+	if err != nil {
+		return nil, err
+	}
+
+	data, err := rlp.EncodeToBytes(tx)
+	if err != nil {
+		return nil, err
+	}
+
+	return JsonTransaction{"0x" + common.Bytes2Hex(data), newTx(tx)}, nil
 }
 
 func (self *ethApi) SendTransaction(req *shared.Request) (interface{}, error) {
@@ -322,6 +364,18 @@ func (self *ethApi) SendTransaction(req *shared.Request) (interface{}, error) {
 		return nil, err
 	}
 	return v, nil
+}
+
+func (self *ethApi) GetNatSpec(req *shared.Request) (interface{}, error) {
+	args := new(NewTxArgs)
+	if err := self.codec.Decode(req.Params, &args); err != nil {
+		return nil, shared.NewDecodeParamError(err.Error())
+	}
+
+	var jsontx = fmt.Sprintf(`{"params":[{"to":"%s","data": "%s"}]}`, args.To, args.Data)
+	notice := natspec.GetNotice(self.xeth, jsontx, self.ethereum.HTTPClient())
+
+	return notice, nil
 }
 
 func (self *ethApi) EstimateGas(req *shared.Request) (interface{}, error) {

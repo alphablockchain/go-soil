@@ -1,5 +1,5 @@
-FROM ubuntu:utopic
-MAINTAINER soil
+FROM ubuntu:wily
+MAINTAINER caktux
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -8,33 +8,14 @@ RUN apt-get update
 RUN apt-get upgrade -q -y
 RUN apt-get dist-upgrade -q -y
 
-# Let our containers upgrade themselves
-RUN apt-get install -q -y unattended-upgrades
+# Install Ethereum
+RUN apt-get install -q -y software-properties-common
+RUN add-apt-repository ppa:ethereum/ethereum
+RUN add-apt-repository ppa:ethereum/ethereum-dev
+RUN apt-get update
+RUN apt-get install -q -y geth
 
-# Install Soil
-RUN apt-get install -q -y curl git mercurial binutils bison gcc make libgmp3-dev build-essential
+EXPOSE 8545
+EXPOSE 30303
 
-# Install Go
-RUN \
-  mkdir -p /goroot && \
-  curl https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz | tar xvzf - -C /goroot --strip-components=1
-
-# Set environment variables.
-ENV GOROOT /goroot
-ENV GOPATH /gopath
-ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
-
-RUN git clone http://github.com/soilcurrency/go-ethereum.git
-RUN cd go-ethereum && git checkout develop && make gsoil
-
-# Install supervisor
-RUN apt-get install -q -y supervisor
-
-# Add supervisor configs
-ADD supervisord.conf supervisord.conf
-
-EXPOSE 9656
-EXPOSE 42786
-
-CMD ["-n", "-c", "/supervisord.conf"]
-ENTRYPOINT ["/usr/bin/supervisord"]
+ENTRYPOINT ["/usr/bin/geth"]

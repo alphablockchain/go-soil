@@ -2,11 +2,19 @@
 # with Go source code. If you know what GOPATH is then you probably
 # don't need to bother with make.
 
-.PHONY: gsoil evm mist all test travis-test-with-coverage clean
+.PHONY: gsoil gsoil-cross evm all test travis-test-with-coverage xgo clean
+.PHONY: gsoil-linux gsoil-linux-arm gsoil-linux-386 gsoil-linux-amd64
+.PHONY: gsoil-darwin gsoil-darwin-386 gsoil-darwin-amd64
+.PHONY: gsoil-windows gsoil-windows-386 gsoil-windows-amd64
+.PHONY: gsoil-android gsoil-android-16 gsoil-android-21
+
 GOBIN = build/bin
 
+CROSSDEPS = https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2
+GO ?= latest
+
 gsoil:
-	build/env.sh go install -v $(shell build/ldflags.sh) ./cmd/gsoil
+	build/env.sh go install -v $(shell build/flags.sh) ./cmd/gsoil
 	@echo "Done building."
 	@echo "Run \"$(GOBIN)/gsoil\" to launch gsoil."
 
@@ -14,61 +22,74 @@ gsoil-cross: gsoil-linux gsoil-darwin gsoil-windows gsoil-android
 	@echo "Full cross compilation done:"
 	@ls -l $(GOBIN)/gsoil-*
 
-gsoil-linux: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=linux/* -v ./cmd/gsoil
+gsoil-linux: xgo gsoil-linux-arm gsoil-linux-386 gsoil-linux-amd64
 	@echo "Linux cross compilation done:"
 	@ls -l $(GOBIN)/gsoil-linux-*
 
-gsoil-darwin: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=darwin/* -v ./cmd/gsoil
+gsoil-linux-arm: xgo
+	build/env.sh $(GOBIN)/xgo --go=$(GO) --dest=$(GOBIN) --deps=$(CROSSDEPS) --targets=linux/arm -v $(shell build/flags.sh) ./cmd/gsoil
+	@echo "Linux ARM cross compilation done:"
+	@ls -l $(GOBIN)/gsoil-linux-* | grep arm
+
+gsoil-linux-386: xgo
+	build/env.sh $(GOBIN)/xgo --go=$(GO) --dest=$(GOBIN) --deps=$(CROSSDEPS) --targets=linux/386 -v $(shell build/flags.sh) ./cmd/gsoil
+	@echo "Linux 386 cross compilation done:"
+	@ls -l $(GOBIN)/gsoil-linux-* | grep 386
+
+gsoil-linux-amd64: xgo
+	build/env.sh $(GOBIN)/xgo --go=$(GO) --dest=$(GOBIN) --deps=$(CROSSDEPS) --targets=linux/amd64 -v $(shell build/flags.sh) ./cmd/gsoil
+	@echo "Linux amd64 cross compilation done:"
+	@ls -l $(GOBIN)/gsoil-linux-* | grep amd64
+
+gsoil-darwin: xgo gsoil-darwin-386 gsoil-darwin-amd64
 	@echo "Darwin cross compilation done:"
 	@ls -l $(GOBIN)/gsoil-darwin-*
 
-gsoil-windows: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=windows/* -v ./cmd/gsoil
+gsoil-darwin-386: xgo
+	build/env.sh $(GOBIN)/xgo --go=$(GO) --dest=$(GOBIN) --deps=$(CROSSDEPS) --targets=darwin/386 -v $(shell build/flags.sh) ./cmd/gsoil
+	@echo "Darwin 386 cross compilation done:"
+	@ls -l $(GOBIN)/gsoil-darwin-* | grep 386
+
+gsoil-darwin-amd64: xgo
+	build/env.sh $(GOBIN)/xgo --go=$(GO) --dest=$(GOBIN) --deps=$(CROSSDEPS) --targets=darwin/amd64 -v $(shell build/flags.sh) ./cmd/gsoil
+	@echo "Darwin amd64 cross compilation done:"
+	@ls -l $(GOBIN)/gsoil-darwin-* | grep amd64
+
+gsoil-windows: xgo gsoil-windows-386 gsoil-windows-amd64
 	@echo "Windows cross compilation done:"
 	@ls -l $(GOBIN)/gsoil-windows-*
 
-gsoil-android: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=android-16/*,android-21/* -v ./cmd/gsoil
+gsoil-windows-386: xgo
+	build/env.sh $(GOBIN)/xgo --go=$(GO) --dest=$(GOBIN) --deps=$(CROSSDEPS) --targets=windows/386 -v $(shell build/flags.sh) ./cmd/gsoil
+	@echo "Windows 386 cross compilation done:"
+	@ls -l $(GOBIN)/gsoil-windows-* | grep 386
+
+gsoil-windows-amd64: xgo
+	build/env.sh $(GOBIN)/xgo --go=$(GO) --dest=$(GOBIN) --deps=$(CROSSDEPS) --targets=windows/amd64 -v $(shell build/flags.sh) ./cmd/gsoil
+	@echo "Windows amd64 cross compilation done:"
+	@ls -l $(GOBIN)/gsoil-windows-* | grep amd64
+
+gsoil-android: xgo gsoil-android-16 gsoil-android-21
 	@echo "Android cross compilation done:"
 	@ls -l $(GOBIN)/gsoil-android-*
 
-gsoil-cross: gsoil-linux gsoil-darwin gsoil-windows gsoil-android
-	@echo "Full cross compilation done:"
-	@ls -l $(GOBIN)/gsoil-*
+gsoil-android-16: xgo
+	build/env.sh $(GOBIN)/xgo --go=$(GO) --dest=$(GOBIN) --deps=$(CROSSDEPS) --targets=android-16/* -v $(shell build/flags.sh) ./cmd/gsoil
+	@echo "Android 16 cross compilation done:"
+	@ls -l $(GOBIN)/gsoil-android-16-*
 
-gsoil-linux: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=linux/* -v ./cmd/gsoil
-	@echo "Linux cross compilation done:"
-	@ls -l $(GOBIN)/gsoil-linux-*
-
-gsoil-darwin: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=darwin/* -v ./cmd/gsoil
-	@echo "Darwin cross compilation done:"
-	@ls -l $(GOBIN)/gsoil-darwin-*
-
-gsoil-windows: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=windows/* -v ./cmd/gsoil
-	@echo "Windows cross compilation done:"
-	@ls -l $(GOBIN)/gsoil-windows-*
-
-gsoil-android: xgo
-	build/env.sh $(GOBIN)/xgo --dest=$(GOBIN) --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 --targets=android-16/*,android-21/* -v ./cmd/gsoil
-	@echo "Android cross compilation done:"
-	@ls -l $(GOBIN)/gsoil-android-*
+gsoil-android-21: xgo
+	build/env.sh $(GOBIN)/xgo --go=$(GO) --dest=$(GOBIN) --deps=$(CROSSDEPS) --targets=android-21/* -v $(shell build/flags.sh) ./cmd/gsoil
+	@echo "Android 21 cross compilation done:"
+	@ls -l $(GOBIN)/gsoil-android-21-*
 
 evm:
-	build/env.sh $(GOROOT)/bin/go install -v $(shell build/ldflags.sh) ./cmd/evm
+	build/env.sh $(GOROOT)/bin/go install -v $(shell build/flags.sh) ./cmd/evm
 	@echo "Done building."
 	@echo "Run \"$(GOBIN)/evm to start the evm."
-mist:
-	build/env.sh go install -v $(shell build/ldflags.sh) ./cmd/mist
-	@echo "Done building."
-	@echo "Run \"$(GOBIN)/mist --asset_path=cmd/mist/assets\" to launch mist."
 
 all:
-	build/env.sh go install -v $(shell build/ldflags.sh) ./...
+	build/env.sh go install -v $(shell build/flags.sh) ./...
 
 test: all
 	build/env.sh go test ./...

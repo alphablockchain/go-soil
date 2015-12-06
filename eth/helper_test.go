@@ -28,21 +28,35 @@ var (
 // newTestProtocolManager creates a new protocol manager for testing purposes,
 // with the given number of blocks already known, and potential notification
 // channels for different events.
-func newTestProtocolManager(blocks int, generator func(int, *core.BlockGen), newtx chan<- []*types.Transaction) *ProtocolManager {
+func newTestProtocolManager(fastSync bool, blocks int, generator func(int, *core.BlockGen), newtx chan<- []*types.Transaction) (*ProtocolManager, error) {
 	var (
-		evmux       = new(event.TypeMux)
-		pow         = new(core.FakePow)
-		db, _       = ethdb.NewMemDatabase()
-		genesis     = core.WriteGenesisBlockForTesting(db, core.GenesisAccount{testBankAddress, testBankFunds})
-		chainman, _ = core.NewChainManager(db, pow, evmux)
-		blockproc   = core.NewBlockProcessor(db, pow, chainman, evmux)
+		evmux         = new(event.TypeMux)
+		pow           = new(core.FakePow)
+		db, _         = ethdb.NewMemDatabase()
+		genesis       = core.WriteGenesisBlockForTesting(db, core.GenesisAccount{testBankAddress, testBankFunds})
+		blockchain, _ = core.NewBlockChain(db, pow, evmux)
 	)
-	chainman.SetProcessor(blockproc)
-	if _, err := chainman.InsertChain(core.GenerateChain(genesis, db, blocks, generator)); err != nil {
+	chain, _ := core.GenerateChain(genesis, db, blocks, generator)
+	if _, err := blockchain.InsertChain(chain); err != nil {
 		panic(err)
 	}
-	pm := NewProtocolManager(NetworkId, evmux, &testTxPool{added: newtx}, pow, chainman, db)
+	pm, err := NewProtocolManager(fastSync, NetworkId, evmux, &testTxPool{added: newtx}, pow, blockchain, db)
+	if err != nil {
+		return nil, err
+	}
 	pm.Start()
+	return pm, nil
+}
+
+// newTestProtocolManagerMust creates a new protocol manager for testing purposes,
+// with the given number of blocks already known, and potential notification
+// channels for different events. In case of an error, the constructor force-
+// fails the test.
+func newTestProtocolManagerMust(t *testing.T, fastSync bool, blocks int, generator func(int, *core.BlockGen), newtx chan<- []*types.Transaction) *ProtocolManager {
+	pm, err := newTestProtocolManager(fastSync, blocks, generator, newtx)
+	if err != nil {
+		t.Fatalf("Failed to create protocol manager: %v", err)
+	}
 	return pm
 }
 
@@ -101,7 +115,7 @@ func newTestPeer(name string, version int, pm *ProtocolManager, shake bool) (*te
 	var id discover.NodeID
 	rand.Read(id[:])
 
-	peer := pm.newPeer(version, NetworkId, p2p.NewPeer(id, name, nil), net)
+	peer := pm.newPeer(version, p2p.NewPeer(id, name, nil), net)
 
 	// Start the peer on a new thread
 	errc := make(chan error, 1)
@@ -116,7 +130,7 @@ func newTestPeer(name string, version int, pm *ProtocolManager, shake bool) (*te
 	}
 	// Execute any implicitly requested handshakes and return
 	if shake {
-		td, head, genesis := pm.chainman.Status()
+		td, head, genesis := pm.blockchain.Status()
 		tp.handshake(nil, td, head, genesis)
 	}
 	return tp, errc

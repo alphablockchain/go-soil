@@ -22,6 +22,7 @@ import (
 	"time"
 
 	"github.com/soilcurrency/ethash"
+	"github.com/soilcurrency/go-ethereum/core"
 	"github.com/soilcurrency/go-ethereum/core/state"
 	"github.com/soilcurrency/go-ethereum/core/vm"
 	"github.com/soilcurrency/go-ethereum/eth"
@@ -119,9 +120,9 @@ func (self *debugApi) DumpBlock(req *shared.Request) (interface{}, error) {
 		return nil, fmt.Errorf("block #%d not found", args.BlockNumber)
 	}
 
-	stateDb := state.New(block.Root(), self.ethereum.ChainDb())
-	if stateDb == nil {
-		return nil, nil
+	stateDb, err := state.New(block.Root(), self.ethereum.ChainDb())
+	if err != nil {
+		return nil, err
 	}
 
 	return stateDb.RawDump(), nil
@@ -146,13 +147,7 @@ func (self *debugApi) SetHead(req *shared.Request) (interface{}, error) {
 	if err := self.codec.Decode(req.Params, &args); err != nil {
 		return nil, shared.NewDecodeParamError(err.Error())
 	}
-
-	block := self.xeth.EthBlockByNumber(args.BlockNumber)
-	if block == nil {
-		return nil, fmt.Errorf("block #%d not found", args.BlockNumber)
-	}
-
-	self.ethereum.ChainManager().SetHead(block)
+	self.ethereum.BlockChain().SetHead(uint64(args.BlockNumber))
 
 	return nil, nil
 }
@@ -172,11 +167,30 @@ func (self *debugApi) ProcessBlock(req *shared.Request) (interface{}, error) {
 	defer func() { vm.Debug = old }()
 	vm.Debug = true
 
-	_, err := self.ethereum.BlockProcessor().RetryProcess(block)
-	if err == nil {
-		return true, nil
+	var (
+		blockchain = self.ethereum.BlockChain()
+		validator  = blockchain.Validator()
+		processor  = blockchain.Processor()
+	)
+
+	err := core.ValidateHeader(blockchain.AuxValidator(), block.Header(), blockchain.GetHeader(block.ParentHash()), true, false)
+	if err != nil {
+		return false, err
 	}
-	return false, err
+	statedb, err := state.New(blockchain.GetBlock(block.ParentHash()).Root(), self.ethereum.ChainDb())
+	if err != nil {
+		return false, err
+	}
+	receipts, _, usedGas, err := processor.Process(block, statedb)
+	if err != nil {
+		return false, err
+	}
+	err = validator.ValidateState(block, blockchain.GetBlock(block.ParentHash()), statedb, receipts, usedGas)
+	if err != nil {
+		return false, err
+	}
+
+	return true, nil
 }
 
 func (self *debugApi) SeedHash(req *shared.Request) (interface{}, error) {
