@@ -21,4 +21,4 @@ import (
 	"math/big"
 )
 
-var BlockReward *big.Int = big.NewInt(8e+18)
+var BlockReward *big.Int = big.NewInt(4e+18)
