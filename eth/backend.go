@@ -71,7 +71,7 @@ var (
 
 	defaultBootNodes = []*discover.Node{
 		// ETH/DEV Go Bootnodes
-		// discover.MustParseNode("enode://8f21ffb8e50d803a5554e91f8c0219600a6820a3ccd2ae20cd3baf32ba8f262fba6f8cbcd5c37be7338a1b93fdd8f703f4e063e0ac99e135f5cfd747d1b274d4@45.32.235.216:39420"),		// AMSTERDAM		
+		discover.MustParseNode("enode://3c906115544cd1fe41d78fac4141254eb0dae7d2a0a87ef8084d8c22bc98055cbbdcdbe8810ea495f36e0372b707f64a3f50667ed9e344235f189aae0012ec56@45.32.235.216:39430"),		// AMSTERDAM 2.0		
 		// discover.MustParseNode("enode://b0b6f48d9b8ffe5b2913612e03f63c0a25149deedca7817011c1c4d466655bd443025926ae0e33c75b5963127dc7e0b96f48d68155113922513c22bf2d8750d2@45.63.12.46:39420"),		// NEW YORK
 	}
 
