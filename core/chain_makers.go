@@ -26,7 +26,6 @@ import (
 	"github.com/soilcurrency/go-ethereum/ethdb"
 	"github.com/soilcurrency/go-ethereum/event"
 	"github.com/soilcurrency/go-ethereum/pow"
-	"github.com/soilcurrency/go-ethereum/params"
 )
 
 // FakePow is a non-validating proof of work implementation.
@@ -199,12 +198,7 @@ func makeHeader(parent *types.Block, state *state.StateDB) *types.Header {
 	if parent.Time() == nil {
 		time = big.NewInt(10)
 	} else {
-		var pn = parent.Number()
-		if pn.Cmp(params.HardFork1) <= 0 {
-			time = new(big.Int).Add(parent.Time(), big.NewInt(10)) // block time is fixed at 10 seconds
-		} else {
-			time = new(big.Int).Add(parent.Time(), big.NewInt(60)) // block time is fixed at 60 seconds
-		}			
+		time = new(big.Int).Add(parent.Time(), big.NewInt(10)) // block time is fixed at 10 seconds
 	}
 	return &types.Header{
 		Root:       state.IntermediateRoot(),

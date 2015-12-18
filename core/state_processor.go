@@ -91,14 +91,16 @@ func ApplyTransaction(bc *BlockChain, gp *GasPool, statedb *state.StateDB, heade
 // mining reward. The total reward consists of the static block reward
 // and rewards for included uncles. The coinbase of each uncle block is
 // also rewarded.
-// SOIL BlockReward workaround due to fork
 func AccumulateRewards(statedb *state.StateDB, header *types.Header, uncles []*types.Header) {
 	var pn = header.Number
+	
+	//HardFork1
 	if pn.Cmp(params.HardFork1) <= 0 {
 		BlockReward=big.NewInt(8e+18)
 	} else {
 		BlockReward=big.NewInt(4e+18)
 	}
+	
 	reward := new(big.Int).Set(BlockReward)
 	r := new(big.Int)
 	for _, uncle := range uncles {
