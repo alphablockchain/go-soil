@@ -59,7 +59,7 @@ var (
 // given the parent block's time and difficulty.
 func CalcDifficulty(time, parentTime uint64, parentNumber, parentDiff *big.Int) *big.Int {
 		
-	//HardFork 2
+	//HardFork2
 	if parentNumber.Cmp(params.HardFork2) < 0 {
 		params.DurationLimit = big.NewInt(13)		
 	} else {

@@ -192,7 +192,7 @@ func GenerateChain(parent *types.Block, db ethdb.Database, n int, gen func(int, 
 	return blocks, receipts
 }
 
-// SOIL block time workaround
+// SOIL block time workaround reverted
 func makeHeader(parent *types.Block, state *state.StateDB) *types.Header {
 	var time *big.Int
 	if parent.Time() == nil {
