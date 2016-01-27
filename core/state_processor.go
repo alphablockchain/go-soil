@@ -94,11 +94,13 @@ func ApplyTransaction(bc *BlockChain, gp *GasPool, statedb *state.StateDB, heade
 func AccumulateRewards(statedb *state.StateDB, header *types.Header, uncles []*types.Header) {
 	var pn = header.Number
 	
-	//HardFork1
+	//HardFork
 	if pn.Cmp(params.HardFork1) < 0 {
 		BlockReward=big.NewInt(8e+18)
-	} else {
+	} else if (pn.Cmp(params.HardFork1) > -1) &&  (pn.Cmp(params.HardFork3) < 0) {
 		BlockReward=big.NewInt(4e+18)
+	} else {
+		BlockReward=big.NewInt(1e+18)
 	}
 	
 	reward := new(big.Int).Set(BlockReward)
