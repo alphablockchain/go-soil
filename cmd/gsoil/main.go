@@ -48,10 +48,10 @@ import (
 
 const (
 	ClientIdentifier = "Gsoil"
-	Version          = "1.3.2"
+	Version          = "1.4.0"
 	VersionMajor     = 1
-	VersionMinor     = 3
-	VersionPatch     = 2
+	VersionMinor     = 4
+	VersionPatch     = 0
 )
 
 var (
