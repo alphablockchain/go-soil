@@ -11,22 +11,22 @@ fi
 workspace="$PWD/build/_workspace"
 root="$PWD"
 ethdir="$workspace/src/github.com/soilcurrency"
-if [ ! -L "$ethdir/go-ethereum" ]; then
+if [ ! -L "$ethdir/go-soil" ]; then
     mkdir -p "$ethdir"
     cd "$ethdir"
-    ln -s ../../../../../. go-ethereum
+    ln -s ../../../../../. go-soil
     cd "$root"
 fi
 
 # Set up the environment to use the workspace.
 # Also add Godeps workspace so we build using canned dependencies.
-GOPATH="$ethdir/go-ethereum/Godeps/_workspace:$workspace"
+GOPATH="$ethdir/go-soil/Godeps/_workspace:$workspace"
 GOBIN="$PWD/build/bin"
 export GOPATH GOBIN
 
 # Run the command inside the workspace.
-cd "$ethdir/go-ethereum"
-PWD="$ethdir/go-ethereum"
+cd "$ethdir/go-soil"
+PWD="$ethdir/go-soil"
 
 # Launch the arguments with the configured environment.
 exec "$@"
