@@ -4,8 +4,8 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/logger"
-	"github.com/soilcurrency/go-ethereum/logger/glog"
+	"github.com/soilcurrency/go-soil/logger"
+	"github.com/soilcurrency/go-soil/logger/glog"
 )
 
 // optimeProgram optimises a JIT program creating segments out of program

@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-soil/common"
 )
 
 /*

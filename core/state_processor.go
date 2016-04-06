@@ -3,13 +3,13 @@ package core
 import (
 	"math/big"
 
-	"github.com/soilcurrency/go-ethereum/core/state"
-	"github.com/soilcurrency/go-ethereum/core/types"
-	"github.com/soilcurrency/go-ethereum/core/vm"
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/logger"
-	"github.com/soilcurrency/go-ethereum/logger/glog"
-	"github.com/soilcurrency/go-ethereum/params"
+	"github.com/soilcurrency/go-soil/core/state"
+	"github.com/soilcurrency/go-soil/core/types"
+	"github.com/soilcurrency/go-soil/core/vm"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/logger"
+	"github.com/soilcurrency/go-soil/logger/glog"
+	"github.com/soilcurrency/go-soil/params"
 )
 
 var (
@@ -93,16 +93,16 @@ func ApplyTransaction(bc *BlockChain, gp *GasPool, statedb *state.StateDB, heade
 // also rewarded.
 func AccumulateRewards(statedb *state.StateDB, header *types.Header, uncles []*types.Header) {
 	var pn = header.Number
-	
+
 	//HardFork
 	if pn.Cmp(params.HardFork1) < 0 {
-		BlockReward=big.NewInt(8e+18)
-	} else if (pn.Cmp(params.HardFork1) > -1) &&  (pn.Cmp(params.HardFork3) < 0) {
-		BlockReward=big.NewInt(4e+18)
+		BlockReward = big.NewInt(8e+18)
+	} else if (pn.Cmp(params.HardFork1) > -1) && (pn.Cmp(params.HardFork3) < 0) {
+		BlockReward = big.NewInt(4e+18)
 	} else {
-		BlockReward=big.NewInt(1e+18)
+		BlockReward = big.NewInt(1e+18)
 	}
-	
+
 	reward := new(big.Int).Set(BlockReward)
 	r := new(big.Int)
 	for _, uncle := range uncles {

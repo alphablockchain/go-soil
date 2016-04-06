@@ -26,11 +26,11 @@ import (
 	"time"
 
 	"github.com/codegangsta/cli"
-	"github.com/soilcurrency/go-ethereum/cmd/utils"
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/rpc"
-	"github.com/soilcurrency/go-ethereum/rpc/codec"
-	"github.com/soilcurrency/go-ethereum/rpc/comms"
+	"github.com/soilcurrency/go-soil/cmd/utils"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/rpc"
+	"github.com/soilcurrency/go-soil/rpc/codec"
+	"github.com/soilcurrency/go-soil/rpc/comms"
 	"github.com/gizak/termui"
 )
 

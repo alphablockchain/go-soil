@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/soilcurrency/go-ethereum/rpc/shared"
+	"github.com/soilcurrency/go-soil/rpc/shared"
 )
 
 type WhisperMessageArgs struct {

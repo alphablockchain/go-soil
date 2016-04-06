@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/crypto/sha3"
-	"github.com/soilcurrency/go-ethereum/p2p/discover"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/crypto/sha3"
+	"github.com/soilcurrency/go-soil/p2p/discover"
 )
 
 func init() {

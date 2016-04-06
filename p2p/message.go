@@ -27,7 +27,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/rlp"
+	"github.com/soilcurrency/go-soil/rlp"
 )
 
 // Msg defines the structure of a p2p message.

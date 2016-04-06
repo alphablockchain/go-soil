@@ -31,8 +31,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/crypto"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/crypto"
 )
 
 var (

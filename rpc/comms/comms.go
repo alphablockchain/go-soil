@@ -25,10 +25,10 @@ import (
 
 	"strconv"
 
-	"github.com/soilcurrency/go-ethereum/logger"
-	"github.com/soilcurrency/go-ethereum/logger/glog"
-	"github.com/soilcurrency/go-ethereum/rpc/codec"
-	"github.com/soilcurrency/go-ethereum/rpc/shared"
+	"github.com/soilcurrency/go-soil/logger"
+	"github.com/soilcurrency/go-soil/logger/glog"
+	"github.com/soilcurrency/go-soil/rpc/codec"
+	"github.com/soilcurrency/go-soil/rpc/shared"
 )
 
 const (

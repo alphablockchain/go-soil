@@ -24,13 +24,13 @@ import (
 	"time"
 
 	"github.com/codegangsta/cli"
-	"github.com/soilcurrency/go-ethereum/cmd/utils"
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/core"
-	"github.com/soilcurrency/go-ethereum/core/state"
-	"github.com/soilcurrency/go-ethereum/core/types"
-	"github.com/soilcurrency/go-ethereum/ethdb"
-	"github.com/soilcurrency/go-ethereum/logger/glog"
+	"github.com/soilcurrency/go-soil/cmd/utils"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/core"
+	"github.com/soilcurrency/go-soil/core/state"
+	"github.com/soilcurrency/go-soil/core/types"
+	"github.com/soilcurrency/go-soil/ethdb"
+	"github.com/soilcurrency/go-soil/logger/glog"
 )
 
 var (

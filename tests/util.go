@@ -21,13 +21,13 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/core"
-	"github.com/soilcurrency/go-ethereum/core/state"
-	"github.com/soilcurrency/go-ethereum/core/types"
-	"github.com/soilcurrency/go-ethereum/core/vm"
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/ethdb"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/core"
+	"github.com/soilcurrency/go-soil/core/state"
+	"github.com/soilcurrency/go-soil/core/types"
+	"github.com/soilcurrency/go-soil/core/vm"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/ethdb"
 )
 
 func checkLogs(tlog []Log, logs vm.Logs) error {

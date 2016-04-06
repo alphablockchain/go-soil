@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/soilcurrency/go-ethereum/params"
+	"github.com/soilcurrency/go-soil/params"
 )
 
 var (

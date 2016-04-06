@@ -20,7 +20,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-soil/common"
 )
 
 func newDb() *LDBDatabase {

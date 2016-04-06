@@ -22,10 +22,10 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/crypto/sha3"
-	"github.com/soilcurrency/go-ethereum/logger"
-	"github.com/soilcurrency/go-ethereum/pow"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/crypto/sha3"
+	"github.com/soilcurrency/go-soil/logger"
+	"github.com/soilcurrency/go-soil/pow"
 )
 
 var powlogger = logger.NewLogger("POW")

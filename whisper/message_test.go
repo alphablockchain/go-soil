@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/crypto"
+	"github.com/soilcurrency/go-soil/crypto"
 )
 
 // Tests whether a message can be wrapped without any identity or encryption.

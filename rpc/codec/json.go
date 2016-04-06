@@ -23,7 +23,7 @@ import (
 	"time"
 	"strings"
 
-	"github.com/soilcurrency/go-ethereum/rpc/shared"
+	"github.com/soilcurrency/go-soil/rpc/shared"
 )
 
 const (

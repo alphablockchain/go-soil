@@ -19,7 +19,7 @@ package state
 import (
 	"sync"
 
-	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-soil/common"
 )
 
 type account struct {

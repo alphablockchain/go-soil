@@ -23,9 +23,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/soilcurrency/go-ethereum/rpc/codec"
-	"github.com/soilcurrency/go-ethereum/rpc/shared"
-	"github.com/soilcurrency/go-ethereum/rpc/useragent"
+	"github.com/soilcurrency/go-soil/rpc/codec"
+	"github.com/soilcurrency/go-soil/rpc/shared"
+	"github.com/soilcurrency/go-soil/rpc/useragent"
 )
 
 func newIpcClient(cfg IpcConfig, codec codec.Codec) (*ipcClient, error) {

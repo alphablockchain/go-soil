@@ -21,13 +21,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/crypto/ecies"
-	"github.com/soilcurrency/go-ethereum/event/filter"
-	"github.com/soilcurrency/go-ethereum/logger"
-	"github.com/soilcurrency/go-ethereum/logger/glog"
-	"github.com/soilcurrency/go-ethereum/p2p"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/crypto/ecies"
+	"github.com/soilcurrency/go-soil/event/filter"
+	"github.com/soilcurrency/go-soil/logger"
+	"github.com/soilcurrency/go-soil/logger/glog"
+	"github.com/soilcurrency/go-soil/p2p"
 	"gopkg.in/fatih/set.v0"
 )
 

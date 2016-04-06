@@ -33,26 +33,26 @@ import (
 	"time"
 
 	"github.com/soilcurrency/ethash"
-	"github.com/soilcurrency/go-ethereum/accounts"
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/common/compiler"
-	"github.com/soilcurrency/go-ethereum/common/httpclient"
-	"github.com/soilcurrency/go-ethereum/core"
-	"github.com/soilcurrency/go-ethereum/core/state"
-	"github.com/soilcurrency/go-ethereum/core/types"
-	"github.com/soilcurrency/go-ethereum/core/vm"
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/eth/downloader"
-	"github.com/soilcurrency/go-ethereum/ethdb"
-	"github.com/soilcurrency/go-ethereum/event"
-	"github.com/soilcurrency/go-ethereum/logger"
-	"github.com/soilcurrency/go-ethereum/logger/glog"
-	"github.com/soilcurrency/go-ethereum/miner"
-	"github.com/soilcurrency/go-ethereum/p2p"
-	"github.com/soilcurrency/go-ethereum/p2p/discover"
-	"github.com/soilcurrency/go-ethereum/p2p/nat"
-	"github.com/soilcurrency/go-ethereum/rlp"
-	"github.com/soilcurrency/go-ethereum/whisper"
+	"github.com/soilcurrency/go-soil/accounts"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/common/compiler"
+	"github.com/soilcurrency/go-soil/common/httpclient"
+	"github.com/soilcurrency/go-soil/core"
+	"github.com/soilcurrency/go-soil/core/state"
+	"github.com/soilcurrency/go-soil/core/types"
+	"github.com/soilcurrency/go-soil/core/vm"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/eth/downloader"
+	"github.com/soilcurrency/go-soil/ethdb"
+	"github.com/soilcurrency/go-soil/event"
+	"github.com/soilcurrency/go-soil/logger"
+	"github.com/soilcurrency/go-soil/logger/glog"
+	"github.com/soilcurrency/go-soil/miner"
+	"github.com/soilcurrency/go-soil/p2p"
+	"github.com/soilcurrency/go-soil/p2p/discover"
+	"github.com/soilcurrency/go-soil/p2p/nat"
+	"github.com/soilcurrency/go-soil/rlp"
+	"github.com/soilcurrency/go-soil/whisper"
 )
 
 const (
@@ -68,10 +68,10 @@ var (
 
 	datadirInUseErrnos = map[uint]bool{11: true, 32: true, 35: true}
 	portInUseErrRE     = regexp.MustCompile("address already in use")
-	
+
 	defaultBootNodes = []*discover.Node{
 		// ETH/DEV Go Bootnodes
-		discover.MustParseNode("enode://e0ac5375954fefc49afcfe84320dc5d3d8478cfecbd7b0c52b5069bcaca714f7f5562d68e2ded1a8284529218e332241b218b074fb6decbfa27e8073d062f305@45.32.235.216:39420"),		// AMSTERDAM 2.0		
+		discover.MustParseNode("enode://e0ac5375954fefc49afcfe84320dc5d3d8478cfecbd7b0c52b5069bcaca714f7f5562d68e2ded1a8284529218e332241b218b074fb6decbfa27e8073d062f305@45.32.235.216:39420"), // AMSTERDAM 2.0
 	}
 
 	defaultTestNetBootNodes = []*discover.Node{

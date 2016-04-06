@@ -22,9 +22,9 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/rlp"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/rlp"
 )
 
 // The values in those tests are from the Transaction Tests

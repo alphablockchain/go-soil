@@ -26,7 +26,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/soilcurrency/go-ethereum/rlp"
+	"github.com/soilcurrency/go-soil/rlp"
 )
 
 // RLPTest is the JSON structure of a single RLP test.

@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/core/vm"
-	"github.com/soilcurrency/go-ethereum/crypto"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/core/vm"
+	"github.com/soilcurrency/go-soil/crypto"
 )
 
 type bytesBacked interface {

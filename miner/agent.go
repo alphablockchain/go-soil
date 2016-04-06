@@ -21,10 +21,10 @@ import (
 
 	"sync/atomic"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/logger"
-	"github.com/soilcurrency/go-ethereum/logger/glog"
-	"github.com/soilcurrency/go-ethereum/pow"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/logger"
+	"github.com/soilcurrency/go-soil/logger/glog"
+	"github.com/soilcurrency/go-soil/pow"
 )
 
 type CpuAgent struct {

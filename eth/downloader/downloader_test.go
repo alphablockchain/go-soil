@@ -25,15 +25,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/core"
-	"github.com/soilcurrency/go-ethereum/core/state"
-	"github.com/soilcurrency/go-ethereum/core/types"
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/ethdb"
-	"github.com/soilcurrency/go-ethereum/event"
-	"github.com/soilcurrency/go-ethereum/params"
-	"github.com/soilcurrency/go-ethereum/trie"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/core"
+	"github.com/soilcurrency/go-soil/core/state"
+	"github.com/soilcurrency/go-soil/core/types"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/ethdb"
+	"github.com/soilcurrency/go-soil/event"
+	"github.com/soilcurrency/go-soil/params"
+	"github.com/soilcurrency/go-soil/trie"
 )
 
 var (

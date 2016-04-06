@@ -26,7 +26,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-soil/common"
 )
 
 type KeyStore interface {

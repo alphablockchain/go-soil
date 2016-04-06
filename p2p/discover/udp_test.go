@@ -34,8 +34,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/logger"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/logger"
 )
 
 func init() {

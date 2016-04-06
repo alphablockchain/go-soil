@@ -19,12 +19,12 @@ package core
 import (
 	"math/big"
 
-	"github.com/soilcurrency/go-ethereum/accounts"
-	"github.com/soilcurrency/go-ethereum/core/state"
-	"github.com/soilcurrency/go-ethereum/core/types"
-	"github.com/soilcurrency/go-ethereum/core/vm"
-	"github.com/soilcurrency/go-ethereum/ethdb"
-	"github.com/soilcurrency/go-ethereum/event"
+	"github.com/soilcurrency/go-soil/accounts"
+	"github.com/soilcurrency/go-soil/core/state"
+	"github.com/soilcurrency/go-soil/core/types"
+	"github.com/soilcurrency/go-soil/core/vm"
+	"github.com/soilcurrency/go-soil/ethdb"
+	"github.com/soilcurrency/go-soil/event"
 )
 
 // Validator is an interface which defines the standard for block validation.

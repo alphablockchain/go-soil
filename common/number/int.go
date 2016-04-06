@@ -19,7 +19,7 @@ package number
 import (
 	"math/big"
 
-	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-soil/common"
 )
 
 var tt256 = new(big.Int).Lsh(big.NewInt(1), 256)

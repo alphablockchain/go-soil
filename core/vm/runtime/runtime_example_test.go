@@ -19,8 +19,8 @@ package runtime_test
 import (
 	"fmt"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/core/vm/runtime"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/core/vm/runtime"
 )
 
 func ExampleExecute() {

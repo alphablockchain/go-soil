@@ -19,8 +19,8 @@ package comms
 import (
 	"fmt"
 
-	"github.com/soilcurrency/go-ethereum/rpc/codec"
-	"github.com/soilcurrency/go-ethereum/rpc/shared"
+	"github.com/soilcurrency/go-soil/rpc/codec"
+	"github.com/soilcurrency/go-soil/rpc/shared"
 )
 
 type InProcClient struct {

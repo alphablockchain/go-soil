@@ -22,8 +22,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/soilcurrency/go-ethereum/logger"
-	"github.com/soilcurrency/go-ethereum/logger/glog"
+	"github.com/soilcurrency/go-soil/logger"
+	"github.com/soilcurrency/go-soil/logger/glog"
 )
 
 const disabledInfo = "Set GO_OPENCL and re-build to enable."

@@ -22,14 +22,14 @@ import (
 	"time"
 
 	"github.com/soilcurrency/ethash"
-	"github.com/soilcurrency/go-ethereum/core"
-	"github.com/soilcurrency/go-ethereum/core/state"
-	"github.com/soilcurrency/go-ethereum/core/vm"
-	"github.com/soilcurrency/go-ethereum/eth"
-	"github.com/soilcurrency/go-ethereum/rlp"
-	"github.com/soilcurrency/go-ethereum/rpc/codec"
-	"github.com/soilcurrency/go-ethereum/rpc/shared"
-	"github.com/soilcurrency/go-ethereum/xeth"
+	"github.com/soilcurrency/go-soil/core"
+	"github.com/soilcurrency/go-soil/core/state"
+	"github.com/soilcurrency/go-soil/core/vm"
+	"github.com/soilcurrency/go-soil/eth"
+	"github.com/soilcurrency/go-soil/rlp"
+	"github.com/soilcurrency/go-soil/rpc/codec"
+	"github.com/soilcurrency/go-soil/rpc/shared"
+	"github.com/soilcurrency/go-soil/xeth"
 	"github.com/rcrowley/go-metrics"
 )
 

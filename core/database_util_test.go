@@ -24,13 +24,13 @@ import (
 	"os"
 	"testing"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/core/types"
-	"github.com/soilcurrency/go-ethereum/core/vm"
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/crypto/sha3"
-	"github.com/soilcurrency/go-ethereum/ethdb"
-	"github.com/soilcurrency/go-ethereum/rlp"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/core/types"
+	"github.com/soilcurrency/go-soil/core/vm"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/crypto/sha3"
+	"github.com/soilcurrency/go-soil/ethdb"
+	"github.com/soilcurrency/go-soil/rlp"
 )
 
 type diffTest struct {

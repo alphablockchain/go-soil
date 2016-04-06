@@ -21,10 +21,10 @@ import (
 	"os"
 
 	"github.com/codegangsta/cli"
-	"github.com/soilcurrency/go-ethereum/cmd/utils"
-	"github.com/soilcurrency/go-ethereum/eth"
-	"github.com/soilcurrency/go-ethereum/ethdb"
-	"github.com/soilcurrency/go-ethereum/tests"
+	"github.com/soilcurrency/go-soil/cmd/utils"
+	"github.com/soilcurrency/go-soil/eth"
+	"github.com/soilcurrency/go-soil/ethdb"
+	"github.com/soilcurrency/go-soil/tests"
 )
 
 var blocktestCommand = cli.Command{

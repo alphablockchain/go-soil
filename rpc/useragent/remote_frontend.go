@@ -21,11 +21,11 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/soilcurrency/go-ethereum/accounts"
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/logger"
-	"github.com/soilcurrency/go-ethereum/logger/glog"
-	"github.com/soilcurrency/go-ethereum/rpc/shared"
+	"github.com/soilcurrency/go-soil/accounts"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/logger"
+	"github.com/soilcurrency/go-soil/logger/glog"
+	"github.com/soilcurrency/go-soil/rpc/shared"
 )
 
 // remoteFrontend implements xeth.Frontend and will communicate with an external

@@ -21,8 +21,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/crypto/ecies"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/crypto/ecies"
 )
 
 func TestEnvelopeOpen(t *testing.T) {

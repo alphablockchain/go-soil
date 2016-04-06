@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-soil/common"
 )
 
 var bigMaxUint64 = new(big.Int).SetUint64(^uint64(0))

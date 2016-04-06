@@ -36,8 +36,8 @@ import (
 	"io"
 	"reflect"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/crypto/randentropy"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/crypto/randentropy"
 	"github.com/pborman/uuid"
 	"golang.org/x/crypto/pbkdf2"
 	"golang.org/x/crypto/scrypt"

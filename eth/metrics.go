@@ -17,8 +17,8 @@
 package eth
 
 import (
-	"github.com/soilcurrency/go-ethereum/metrics"
-	"github.com/soilcurrency/go-ethereum/p2p"
+	"github.com/soilcurrency/go-soil/metrics"
+	"github.com/soilcurrency/go-soil/p2p"
 )
 
 var (

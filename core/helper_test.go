@@ -20,11 +20,11 @@ import (
 	"container/list"
 	"fmt"
 
-	"github.com/soilcurrency/go-ethereum/core/types"
+	"github.com/soilcurrency/go-soil/core/types"
 	// "github.com/soilcurrency/go-ethereum/crypto"
 
-	"github.com/soilcurrency/go-ethereum/ethdb"
-	"github.com/soilcurrency/go-ethereum/event"
+	"github.com/soilcurrency/go-soil/ethdb"
+	"github.com/soilcurrency/go-soil/event"
 )
 
 // Implement our EthTest Manager

@@ -22,7 +22,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/soilcurrency/go-ethereum/rlp"
+	"github.com/soilcurrency/go-soil/rlp"
 )
 
 func TestNonInterfaceSlice(t *testing.T) {

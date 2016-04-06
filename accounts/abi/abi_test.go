@@ -25,7 +25,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-soil/common"
 	"github.com/ethereum/go-ethereum/crypto"
 )
 

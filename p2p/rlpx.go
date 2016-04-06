@@ -32,12 +32,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/crypto/ecies"
-	"github.com/soilcurrency/go-ethereum/crypto/secp256k1"
-	"github.com/soilcurrency/go-ethereum/crypto/sha3"
-	"github.com/soilcurrency/go-ethereum/p2p/discover"
-	"github.com/soilcurrency/go-ethereum/rlp"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/crypto/ecies"
+	"github.com/soilcurrency/go-soil/crypto/secp256k1"
+	"github.com/soilcurrency/go-soil/crypto/sha3"
+	"github.com/soilcurrency/go-soil/p2p/discover"
+	"github.com/soilcurrency/go-soil/rlp"
 )
 
 const (

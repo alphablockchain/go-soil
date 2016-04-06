@@ -19,7 +19,7 @@
 package fetcher
 
 import (
-	"github.com/soilcurrency/go-ethereum/metrics"
+	"github.com/soilcurrency/go-soil/metrics"
 )
 
 var (

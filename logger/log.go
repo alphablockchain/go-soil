@@ -22,7 +22,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-soil/common"
 )
 
 func openLogFile(datadir string, filename string) *os.File {

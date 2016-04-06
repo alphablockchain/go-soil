@@ -21,7 +21,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/soilcurrency/go-ethereum/crypto/randentropy"
+	"github.com/soilcurrency/go-soil/crypto/randentropy"
 )
 
 const TestCount = 10000

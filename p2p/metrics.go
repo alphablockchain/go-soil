@@ -21,7 +21,7 @@ package p2p
 import (
 	"net"
 
-	"github.com/soilcurrency/go-ethereum/metrics"
+	"github.com/soilcurrency/go-soil/metrics"
 )
 
 var (

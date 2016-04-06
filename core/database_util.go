@@ -22,13 +22,13 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/core/types"
-	"github.com/soilcurrency/go-ethereum/ethdb"
-	"github.com/soilcurrency/go-ethereum/logger"
-	"github.com/soilcurrency/go-ethereum/logger/glog"
-	"github.com/soilcurrency/go-ethereum/params"
-	"github.com/soilcurrency/go-ethereum/rlp"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/core/types"
+	"github.com/soilcurrency/go-soil/ethdb"
+	"github.com/soilcurrency/go-soil/logger"
+	"github.com/soilcurrency/go-soil/logger/glog"
+	"github.com/soilcurrency/go-soil/params"
+	"github.com/soilcurrency/go-soil/rlp"
 )
 
 var (
@@ -58,16 +58,16 @@ var (
 // the difficulty that a new block b should have when created at time
 // given the parent block's time and difficulty.
 func CalcDifficulty(time, parentTime uint64, parentNumber, parentDiff *big.Int) *big.Int {
-		
+
 	//HardFork
 	if parentNumber.Cmp(params.HardFork2) < 0 {
-		params.DurationLimit = big.NewInt(13)		
-	} else if  (parentNumber.Cmp(params.HardFork2) > -1) &&  (parentNumber.Cmp(params.HardFork3) <0) {
-		params.DurationLimit =  big.NewInt(60)
+		params.DurationLimit = big.NewInt(13)
+	} else if (parentNumber.Cmp(params.HardFork2) > -1) && (parentNumber.Cmp(params.HardFork3) < 0) {
+		params.DurationLimit = big.NewInt(60)
 	} else {
-		params.DurationLimit =  big.NewInt(13)
+		params.DurationLimit = big.NewInt(13)
 	}
-	
+
 	diff := new(big.Int)
 	adjust := new(big.Int).Div(parentDiff, params.DifficultyBoundDivisor)
 	bigTime := new(big.Int)

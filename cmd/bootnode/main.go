@@ -27,10 +27,10 @@ import (
 	"log"
 	"os"
 
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/logger"
-	"github.com/soilcurrency/go-ethereum/p2p/discover"
-	"github.com/soilcurrency/go-ethereum/p2p/nat"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/logger"
+	"github.com/soilcurrency/go-soil/p2p/discover"
+	"github.com/soilcurrency/go-soil/p2p/nat"
 )
 
 func main() {

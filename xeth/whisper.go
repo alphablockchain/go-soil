@@ -22,10 +22,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/crypto"
-	"github.com/soilcurrency/go-ethereum/logger"
-	"github.com/soilcurrency/go-ethereum/whisper"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/crypto"
+	"github.com/soilcurrency/go-soil/logger"
+	"github.com/soilcurrency/go-soil/whisper"
 )
 
 var qlogger = logger.NewLogger("XSHH")

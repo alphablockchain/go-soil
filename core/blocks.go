@@ -16,7 +16,7 @@
 
 package core
 
-import "github.com/soilcurrency/go-ethereum/common"
+import "github.com/soilcurrency/go-soil/common"
 
 // Set of manually tracked bad hashes (usually hard forks)
 var BadHashes = map[common.Hash]bool{

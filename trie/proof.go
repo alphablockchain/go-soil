@@ -5,9 +5,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/crypto/sha3"
-	"github.com/soilcurrency/go-ethereum/rlp"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/crypto/sha3"
+	"github.com/soilcurrency/go-soil/rlp"
 )
 
 // Prove constructs a merkle proof for key. The result contains all

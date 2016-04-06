@@ -22,9 +22,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/core"
-	"github.com/soilcurrency/go-ethereum/core/vm"
-	"github.com/soilcurrency/go-ethereum/event"
+	"github.com/soilcurrency/go-soil/core"
+	"github.com/soilcurrency/go-soil/core/vm"
+	"github.com/soilcurrency/go-soil/event"
 )
 
 // FilterSystem manages filters that filter specific events such as

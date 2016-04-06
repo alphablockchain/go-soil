@@ -20,7 +20,7 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-soil/common"
 )
 
 var big_t = reflect.TypeOf(&big.Int{})

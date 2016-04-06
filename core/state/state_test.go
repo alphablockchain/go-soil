@@ -23,8 +23,8 @@ import (
 
 	checker "gopkg.in/check.v1"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/ethdb"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/ethdb"
 )
 
 type StateSuite struct {

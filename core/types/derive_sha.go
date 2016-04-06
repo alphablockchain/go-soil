@@ -19,9 +19,9 @@ package types
 import (
 	"bytes"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/rlp"
-	"github.com/soilcurrency/go-ethereum/trie"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/rlp"
+	"github.com/soilcurrency/go-soil/trie"
 )
 
 type DerivableList interface {

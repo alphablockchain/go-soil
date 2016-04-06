@@ -21,7 +21,7 @@ import (
 	"bytes"
 	"errors"
 
-	"github.com/soilcurrency/go-ethereum/crypto"
+	"github.com/soilcurrency/go-soil/crypto"
 )
 
 const (

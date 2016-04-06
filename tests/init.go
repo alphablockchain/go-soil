@@ -26,7 +26,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/soilcurrency/go-ethereum/core"
+	"github.com/soilcurrency/go-soil/core"
 )
 
 var (

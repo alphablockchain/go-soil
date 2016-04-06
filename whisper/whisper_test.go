@@ -20,8 +20,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/p2p"
-	"github.com/soilcurrency/go-ethereum/p2p/discover"
+	"github.com/soilcurrency/go-soil/p2p"
+	"github.com/soilcurrency/go-soil/p2p/discover"
 )
 
 func startTestCluster(n int) []*Whisper {

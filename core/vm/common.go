@@ -20,9 +20,9 @@ import (
 	"math"
 	"math/big"
 
-	"github.com/soilcurrency/go-ethereum/common"
-	"github.com/soilcurrency/go-ethereum/logger/glog"
-	"github.com/soilcurrency/go-ethereum/params"
+	"github.com/soilcurrency/go-soil/common"
+	"github.com/soilcurrency/go-soil/logger/glog"
+	"github.com/soilcurrency/go-soil/params"
 )
 
 // Global Debug flag indicating Debug VM (full logging)

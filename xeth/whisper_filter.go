@@ -23,7 +23,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/soilcurrency/go-ethereum/common"
+	"github.com/soilcurrency/go-soil/common"
 )
 
 // whisperFilter is the message cache matching a specific filter, accumulating

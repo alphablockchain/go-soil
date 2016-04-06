@@ -19,10 +19,10 @@ package api
 import (
 	"math/big"
 
-	"github.com/soilcurrency/go-ethereum/eth"
-	"github.com/soilcurrency/go-ethereum/rpc/codec"
-	"github.com/soilcurrency/go-ethereum/rpc/shared"
-	"github.com/soilcurrency/go-ethereum/xeth"
+	"github.com/soilcurrency/go-soil/eth"
+	"github.com/soilcurrency/go-soil/rpc/codec"
+	"github.com/soilcurrency/go-soil/rpc/shared"
+	"github.com/soilcurrency/go-soil/xeth"
 )
 
 const (
